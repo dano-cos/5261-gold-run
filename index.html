@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add to Calendar · Gold Run Estate · July 15</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --night: #1a1410;
+      --deep: #120e0a;
+      --warm: #2c2218;
+      --gold: #c9a84c;
+      --mist: #8a7a6a;
+      --cream: #faf7f2;
+      --parchment: #f3ede3;
+      --text: #4a3c2e;
+    }
+
+    html, body {
+      height: 100%;
+      background-color: var(--night);
+      color: var(--cream);
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background-color: var(--deep);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+    }
+
+    .card-header {
+      padding: 36px 40px 28px;
+      border-bottom: 1px solid var(--gold);
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--cream);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .brand span { color: var(--gold); }
+
+    .gold-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 20px;
+    }
+
+    .event-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .event-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .event-meta {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-top: 4px;
+    }
+
+    .card-details {
+      padding: 24px 40px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      background-color: var(--warm);
+    }
+
+    .detail-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(58, 46, 30, 0.8);
+    }
+
+    .detail-row:last-child { border-bottom: none; }
+
+    .detail-label {
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--mist);
+      min-width: 60px;
+      padding-top: 2px;
+    }
+
+    .detail-value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.3;
+    }
+
+    .detail-value small {
+      display: block;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 10px;
+      color: var(--mist);
+      margin-top: 2px;
+    }
+
+    .card-cta {
+      padding: 28px 40px 36px;
+      text-align: center;
+    }
+
+    .cta-label {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-bottom: 20px;
+    }
+
+    .cal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cal-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      text-decoration: none;
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      background: transparent;
+      color: var(--cream);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+
+    .cal-btn:hover {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.06);
+    }
+
+    .cal-btn .icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cal-btn .icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .cal-btn .btn-text {
+      flex: 1;
+    }
+
+    .cal-btn .btn-sub {
+      display: block;
+      font-size: 8px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: var(--mist);
+      text-transform: none;
+      margin-top: 2px;
+    }
+
+    .cal-btn .arrow {
+      color: var(--gold);
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    .card-footer {
+      padding: 20px 40px;
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+      text-align: center;
+    }
+
+    .card-footer p {
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: var(--mist);
+      line-height: 1.7;
+    }
+
+    .card-footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    @media (max-width: 520px) {
+      .card-header, .card-details, .card-cta, .card-footer { padding-left: 24px; padding-right: 24px; }
+      .event-title { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="card-header">
+    <p class="eyebrow">Broker Open House · Exclusive Invitation</p>
+    <p class="brand">Gott<span>Homes</span></p>
+    <div class="gold-rule"></div>
+    <h1 class="event-title"><em>Gold Run</em> Estate</h1>
+    <p class="event-meta">5261 Gold Run Court · Flying Horse North</p>
+  </div>
+
+  <div class="card-details">
+    <div class="detail-row">
+      <span class="detail-label">Date</span>
+      <span class="detail-value">Tuesday, July 15, 2025</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Time</span>
+      <span class="detail-value">1:00 – 4:00 pm MDT</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Where</span>
+      <span class="detail-value">5261 Gold Run Court
+        <small>Flying Horse North · Colorado Springs, CO 80924</small>
+      </span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Price</span>
+      <span class="detail-value">$5,795,000</span>
+    </div>
+  </div>
+
+  <div class="card-cta">
+    <p class="cta-label">Add to your calendar</p>
+    <div class="cal-buttons">
+
+      <!-- Google Calendar -->
+      <a class="cal-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Broker+Open+House+%E2%80%93+Gold+Run+Estate&dates=20250715T190000Z/20250715T220000Z&details=You%27re+invited+to+a+private+broker+walkthrough+of+Gold+Run+Estate%2C+a+7%2C273+sq+ft+luxury+residence+offered+at+%245%2C795%2C000.+Light+refreshments+will+be+served.%0A%0APatti+Gottwein+%C2%B7+Patti%40gotthomes.com+%C2%B7+719.963.1590&location=5261+Gold+Run+Court%2C+Colorado+Springs%2C+CO+80924" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="17" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M16 2v4M8 2v4M3 9h18" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M8 13h2v2H8z" fill="#c9a84c"/>
+            <path d="M11 13h2v2h-2z" fill="#c9a84c" opacity="0.5"/>
+            <path d="M14 13h2v2h-2z" fill="#c9a84c" opacity="0.3"/>
+          </svg>
+        </span>
+        <span class="btn-text">
+          Google Calendar
+          <span class="btn-sub">Opens in Google Calendar</span>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+
+      <!-- Apple Calendar (.ics) -->
+      <a class="cal-btn" href="gold-run-estate.ics" download>
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="17" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M16 2v4M8 2v4M3 9h18" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 12v5M9.5 14.5L12 17l2.5-2.5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="btn-text">
+          Apple Calendar
+          <span class="btn-sub">Downloads .ics file</span>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+
+      <!-- Outlook -->
+      <a class="cal-btn" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Broker+Open+House+%E2%80%93+Gold+Run+Estate&startdt=2025-07-15T13:00:00&enddt=2025-07-15T16:00:00&location=5261+Gold+Run+Court%2C+Colorado+Springs%2C+CO+80924&body=You%27re+invited+to+a+private+broker+walkthrough+of+Gold+Run+Estate%2C+a+7%2C273+sq+ft+luxury+residence+offered+at+%245%2C795%2C000.+Light+refreshments+will+be+served.%0A%0APatti+Gottwein+%C2%B7+Patti%40gotthomes.com+%C2%B7+719.963.1590&path=/calendar/action/compose&rru=addevent" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="17" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M16 2v4M8 2v4M3 9h18" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7 13h10M7 16h6" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="btn-text">
+          Outlook
+          <span class="btn-sub">Outlook.com &amp; Hotmail</span>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+
+      <!-- Office 365 -->
+      <a class="cal-btn" href="https://outlook.office.com/calendar/0/deeplink/compose?subject=Broker+Open+House+%E2%80%93+Gold+Run+Estate&startdt=2025-07-15T13:00:00&enddt=2025-07-15T16:00:00&location=5261+Gold+Run+Court%2C+Colorado+Springs%2C+CO+80924&body=You%27re+invited+to+a+private+broker+walkthrough+of+Gold+Run+Estate%2C+a+7%2C273+sq+ft+luxury+residence+offered+at+%245%2C795%2C000.+Light+refreshments+will+be+served.%0A%0APatti+Gottwein+%C2%B7+Patti%40gotthomes.com+%C2%B7+719.963.1590&path=/calendar/action/compose&rru=addevent" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="17" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M16 2v4M8 2v4M3 9h18" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="12" cy="15" r="3" stroke="#c9a84c" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span class="btn-text">
+          Office 365
+          <span class="btn-sub">Work &amp; enterprise accounts</span>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+
+      <!-- Yahoo -->
+      <a class="cal-btn" href="https://calendar.yahoo.com/?v=60&title=Broker+Open+House+%E2%80%93+Gold+Run+Estate&st=20250715T130000&et=20250715T160000&in_loc=5261+Gold+Run+Court%2C+Colorado+Springs%2C+CO+80924&desc=You%27re+invited+to+a+private+broker+walkthrough+of+Gold+Run+Estate%2C+a+7%2C273+sq+ft+luxury+residence+offered+at+%245%2C795%2C000.+Light+refreshments+will+be+served.%0A%0APatti+Gottwein+%C2%B7+Patti%40gotthomes.com+%C2%B7+719.963.1590" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="17" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M16 2v4M8 2v4M3 9h18" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M9 13l3 3 3-3M12 16v-4" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="btn-text">
+          Yahoo Calendar
+          <span class="btn-sub">Opens in Yahoo Calendar</span>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <p>
+      Patti Gottwein · <a href="https://gotthomes.com">GottHomes.com</a><br>
+      <a href="mailto:Patti@gotthomes.com">Patti@gotthomes.com</a> · <a href="tel:+17199631590">719.963.1590</a><br><br>
+      The Johnson Team at Keller Williams Premier Realty · Colorado Springs, CO
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
